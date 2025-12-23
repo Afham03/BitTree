@@ -1,9 +1,9 @@
-// app/generate/GenerateClient.js
-"use client"; 
-import React, { useState } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+"use client";
+
+import React, { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const GenerateClient = () => {
   const searchParams = useSearchParams();
@@ -18,9 +18,7 @@ const GenerateClient = () => {
     );
   };
 
-  const addLink = () => {
-    setLinks([...links, { link: "", linktext: "" }]);
-  };
+  const addLink = () => setLinks([...links, { link: "", linktext: "" }]);
 
   const submitLinks = async () => {
     try {
@@ -30,7 +28,6 @@ const GenerateClient = () => {
         body: JSON.stringify({ links, handle, pic, desc }),
       });
       const result = await res.json();
-
       if (result.success) {
         toast.success(result.message);
         setLinks([{ link: "", linktext: "" }]);
