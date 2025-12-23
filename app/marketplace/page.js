@@ -9,7 +9,7 @@ const Marketplace = () => {
 
       <p className="max-w-2xl mb-10 text-lg">
         Connect Linktree with tools you already love.
-      </p>
+</p>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-white text-black p-5 rounded-xl shadow">Spotify</div>
