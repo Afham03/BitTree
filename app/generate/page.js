@@ -2,9 +2,11 @@
 import React from 'react';
 import Link from 'next/link';
 import GenerateClient from './GenerateClient';
+import { Suspense } from 'react';
 
 export default function GeneratePage() {
   return (
+    <Suspense fallback={<p>Loading...</p>}>
     <div className="bg-[#FFFFFF] flex w-full h-screen">
       <div className="col1 flex flex-1 justify-center text-gray-900">
         <div className="flex flex-col gap-5 my-8">
@@ -35,5 +37,6 @@ export default function GeneratePage() {
         />
       </div>
     </div>
+    </Suspense>
   );
 }
