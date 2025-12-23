@@ -34,39 +34,39 @@ const Generate = () => {
     }
 
   const submitLinks = async () => {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
 
-    const raw = JSON.stringify({
-      "links": links, 
-      "handle": handle,
-      "pic": pic,
-      "desc": desc
-    });
+  const raw = JSON.stringify({
+    "links": links, 
+    "handle": handle,
+    "pic": pic,
+    "desc": desc
+  });
 
-    console.log(raw)
+  console.log(raw);
 
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow"
-    };
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+  };
 
-   const r = await fetch("http://localhost:3000/api/add", requestOptions)
-   const result = await r.json()
-   if(result.success){ 
-     toast.success(result.message)
-     setLinks([])
-     setpic("")
-     sethandle("")
-    }
-    else{
-      toast.error(result.message)
-    }
- 
-       
+  // change here
+  const r = await fetch("/api/add", requestOptions)
+  const result = await r.json()
+  if(result.success){ 
+    toast.success(result.message)
+    setLinks([])
+    setpic("")
+    sethandle("")
   }
+  else{
+    toast.error(result.message)
+  }
+}
+
 
   return (
     <div className='bg-[#FFFFFF] flex w-full h-screen'>

@@ -2,7 +2,7 @@ import React from "react";
 
 const Marketplace = () => {
   return (
-    <div className="min-h-screen bg-neutral-100 px-10 py-40">
+    <div className="min-h-screen bg-pink-600 px-10 py-40">
       <h1 className="text-5xl font-bold mb-6">
         Discover apps & integrations
       </h1>
@@ -12,10 +12,10 @@ const Marketplace = () => {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white p-5 rounded-xl shadow">Spotify</div>
-        <div className="bg-white p-5 rounded-xl shadow">YouTube</div>
-        <div className="bg-white p-5 rounded-xl shadow">PayPal</div>
-        <div className="bg-white p-5 rounded-xl shadow">Shopify</div>
+        <div className="bg-white text-black p-5 rounded-xl shadow">Spotify</div>
+        <div className="bg-white text-black p-5 rounded-xl shadow">YouTube</div>
+        <div className="bg-white text-black p-5 rounded-xl shadow">PayPal</div>
+        <div className="bg-white text-black p-5 rounded-xl shadow">Shopify</div>
       </div>
     </div>
   );
