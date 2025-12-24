@@ -21,26 +21,27 @@ const GenerateClient = () => {
   const addLink = () => setLinks([...links, { link: "", linktext: "" }]);
 
   const submitLinks = async () => {
-    try {
-      const res = await fetch("/api/add", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ links, handle, pic, desc }),
-      });
-      const result = await res.json();
-      if (result.success) {
-        toast.success(result.message);
-        setLinks([{ link: "", linktext: "" }]);
-        setHandle("");
-        setPic("");
-        setDesc("");
-      } else {
-        toast.error(result.message);
-      }
-    } catch (err) {
-      toast.error("Failed to submit links");
+  try {
+    const res = await fetch("/api/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ links, handle, pic, desc }),
+    });
+
+    const result = await res.json();
+    console.log("API RESPONSE:", result);
+
+    if (!res.ok) {
+      throw new Error(result.message || "API failed");
     }
-  };
+
+    toast.success(result.message);
+  } catch (err) {
+    console.error("SUBMIT ERROR:", err);
+    toast.error("Failed to submit");
+  }
+};
+
 
   return (
     <div className="flex flex-col gap-5">
